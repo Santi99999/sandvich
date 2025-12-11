@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Prefix de WineHQ
 export WINEPREFIX=/app/wineprefix
 wineboot --init
 
-# Entrar a server
 cd /app/server
 
-# Ejecutar server de Novetus
-
-wine RobloxApp_server.exe -place place.rbxl -port $PORT & sleep 5; echo "SERVER FINISHED?"
+echo "Starting Novetus 2010L server..."
+wine ServerWrapper.exe config.ini
