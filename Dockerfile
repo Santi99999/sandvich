@@ -1,17 +1,13 @@
 FROM ubuntu:22.04
 
-# instalar wine
 RUN dpkg --add-architecture i386 && \
     apt update && \
     apt install -y wine32 wine64 xvfb winbind && \
     apt clean
 
-# copiar todo
-COPY . /app
-WORKDIR /app
+COPY server/ /app/server/
+COPY start.sh /start.sh
 
-# permisos
-RUN chmod +x start.sh
+RUN chmod +x /start.sh
 
-# ejecutar
-CMD ["/bin/bash", "start.sh"]
+CMD ["/bin/bash", "/start.sh"]
