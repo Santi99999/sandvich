@@ -10,4 +10,6 @@ COPY start.sh /start.sh
 
 RUN chmod +x /start.sh
 
+WORKDIR /app/server
+
 CMD ["/bin/bash", "/start.sh"]
