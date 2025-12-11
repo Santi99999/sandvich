@@ -6,19 +6,13 @@ RUN dpkg --add-architecture i386 && \
     apt clean
 
 ENV WINEPREFIX=/app/wineprefix
-ENV DISPLAY=:0
-
-# inicializar wine
-RUN wineboot --init
-
-# instalar visual c++ 2008 (mfc90.dll + msvcr90.dll)
-RUN xvfb-run -a winetricks -q vcrun2008
+ENV DISPLAY=:99
 
 COPY server/ /app/server/
-COPY start.sh /start.sh
+COPY start.sh /app/start.sh
 
-RUN chmod +x /start.sh
+RUN chmod +x /app/start.sh
 
-WORKDIR /app/server
+WORKDIR /app
 
-CMD ["/bin/bash", "/start.sh"]
+CMD ["bash", "start.sh"]
