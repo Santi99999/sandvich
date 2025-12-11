@@ -11,7 +11,8 @@ COPY . /app
 WORKDIR /app
 
 # permisos
-RUN chmod +x /app/server/start.sh
+RUN chmod +x /app/start.sh
 
 # ejecutar
-CMD ["/bin/bash", "/app/server/start.sh"]
+
+CMD ["/bin/bash", "/app/start.sh"]
