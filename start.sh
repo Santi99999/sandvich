@@ -8,4 +8,5 @@ wineboot --init
 cd /app/server
 
 # Ejecutar server de Novetus
-wine RobloxApp_server.exe -place "place.rbxl" -port $PORT
+
+wine RobloxApp_server.exe -place place.rbxl -port $PORT & sleep 5; echo "SERVER FINISHED?"
