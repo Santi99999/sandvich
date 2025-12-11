@@ -5,5 +5,5 @@ wineboot --init
 
 cd /app/server
 
-echo "Starting Novetus 2010L server..."
-wine ServerWrapper.exe config.ini
+echo "starting 2010l server..."
+wine RobloxApp_server.exe -place "Place.rbxl" -port $PORT
