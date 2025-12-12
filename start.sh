@@ -1,14 +1,15 @@
 #!/bin/bash
 
-export WINEPREFIX=/app/wineprefix
-export DISPLAY=:99
+export WINEPREFIX="/home/runner/.wine-roblox"
+export DISPLAY=":0"
 
-echo ">>> inicializando wine..."
+echo "iniciando prefix de wine"
 xvfb-run -a wineboot --init
 
-echo ">>> instalando vcrun2008..."
-xvfb-run -a winetricks -q vcrun2008
+echo "instalando mfc90.dll"
+winetricks -q vcrun2008
 
-echo ">>> iniciando server 2010L..."
-cd /app/server
-xvfb-run -a wine RobloxApp_server.exe -place "Place.rbxl" -port $PORT
+echo "iniciando server: novetus 2010L"
+cd server
+
+xvfb-run -a wine RobloxApp_server.exe -place "place.rbxl" -port 53640
